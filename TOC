@@ -1,3 +1,4 @@
+https://github.com/radare/radare2book/blob/master/esil.md
 
 Кочков Антон <anton.kochkov@gmail.com>
 
@@ -61,4 +62,11 @@ ESIL расшифровывается как 'Evaluable Strings Intermediate Lan
 5.2 Визуальная отладка и трассировка с помощью ESIL
 5.3 Интеграция с SMT решателями
 5.4 И, конечно, декомпиляция - Radeco
+
+
+TODO
+====
+
+1. Write x86 and arm ESIL tests
+2. Write the test for each demo
 
