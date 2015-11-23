@@ -1,0 +1,13 @@
+\frametitle{Embedded controller - 8051 - ESIL2REIL}
+  \center Lets start again from the same place
+  \begin{itemize}
+	  \item r2 -a 8051 ite\_it8502.rom
+	  \item . ite\_it8502.r2
+	  \item run `pae 36' to show the esil expression of the `set\_SMBus\_frequency'
+\ifxetex
+	  \item run `aetr \`{}pae 36\`' to convert the previous esil output to REIL
+\else
+	  \item run `aetr \`{}pae 36\`' to convert the previous esil output to REIL\footfullcite{openreil}
+\fi
+	  \item store this to some file and use the `openreil' utility to SMT it
+  \end{itemize}
