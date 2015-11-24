@@ -19,18 +19,6 @@
 
 \refsection{0}
   \sortlist{nyt}{nyt}
-    \entry{bios-extract}{online}{}
-      \field{sortinit}{B}
-      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
-      \field{labelyear}{2015}
-      \field{datelabelsource}{}
-      \field{labeltitlesource}{title}
-      \field{title}{Bios\_extract}
-      \field{year}{2015}
-      \verb{url}
-      \verb http://coreboot.org/Bios_extract
-      \endverb
-    \endentry
     \entry{r2esiltv}{online}{}
       \field{sortinit}{E}
       \field{sortinithash}{fefc5210ef4721525b2a478df41efcd4}
@@ -42,26 +30,6 @@
       \verb{url}
       \verb http://radare.tv/a/44
       \endverb
-    \endentry
-    \entry{qemu-omap}{misc}{}
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=e2147400fc84c5cb94ef5fe5dba28bde}{Kochkov}{K\bibinitperiod}{Anton}{A\bibinitperiod}{}{}{}{}}%
-      }
-      \list{publisher}{1}{%
-        {GitHub}%
-      }
-      \strng{namehash}{e2147400fc84c5cb94ef5fe5dba28bde}
-      \strng{fullhash}{e2147400fc84c5cb94ef5fe5dba28bde}
-      \field{sortinit}{K}
-      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
-      \field{labelyear}{2013}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://github.com/XVilka/qemu}}
-      \field{journaltitle}{GitHub repository}
-      \field{title}{QEMU patched for loading OMAP bootroms}
-      \field{year}{2013}
     \endentry
     \entry{openreil}{misc}{}
       \name{author}{1}{}{%
@@ -81,30 +49,6 @@
       \field{journaltitle}{GitHub repository}
       \field{year}{2015}
     \endentry
-    \entry{pwnablekr}{online}{}
-      \field{sortinit}{P}
-      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
-      \field{labelyear}{2015}
-      \field{datelabelsource}{}
-      \field{labeltitlesource}{title}
-      \field{title}{Pwnable kr}
-      \field{year}{2015}
-      \verb{url}
-      \verb http://pwnable.kr
-      \endverb
-    \endentry
-    \entry{r2pipe}{online}{}
-      \field{sortinit}{R}
-      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
-      \field{labelyear}{2014}
-      \field{datelabelsource}{}
-      \field{labeltitlesource}{title}
-      \field{title}{R2pipe API}
-      \field{year}{2014}
-      \verb{url}
-      \verb https://github.com/radare/radare2/wiki/R2PipeAPI
-      \endverb
-    \endentry
     \entry{r2advert}{online}{}
       \field{sortinit}{R}
       \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
@@ -117,64 +61,28 @@
       \verb https://twitter.com/alech/status/668385168206483456
       \endverb
     \endentry
-    \entry{r2types}{online}{}
+    \entry{reil-zynamics}{online}{}
+      \field{sortinit}{R}
+      \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
+      \field{labelyear}{2005}
+      \field{datelabelsource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{REIL description - Zynamics}
+      \field{year}{2005}
+      \verb{url}
+      \verb http://www.zynamics.com/binnavi/manual/html/reil_language.htm
+      \endverb
+    \endentry
+    \entry{floating-point-SO}{online}{}
       \field{sortinit}{R}
       \field{sortinithash}{c7387613477035a752d935acfc3e3ea2}
       \field{labelyear}{2014}
       \field{datelabelsource}{}
       \field{labeltitlesource}{title}
-      \field{title}{Radare2 types command}
+      \field{title}{REIL description - Zynamics}
       \field{year}{2014}
       \verb{url}
-      \verb http://radare.today/types
-      \endverb
-    \endentry
-    \entry{uefitool}{misc}{}
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=e59c1af8233a3120a2b7e2826611c6eb}{Shlej}{S\bibinitperiod}{Nicolaj}{N\bibinitperiod}{}{}{}{}}%
-      }
-      \list{publisher}{1}{%
-        {GitHub}%
-      }
-      \strng{namehash}{e59c1af8233a3120a2b7e2826611c6eb}
-      \strng{fullhash}{e59c1af8233a3120a2b7e2826611c6eb}
-      \field{sortinit}{S}
-      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
-      \field{labelyear}{2013}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{howpublished}{\url{https://github.com/LongSoft/UEFITool}}
-      \field{journaltitle}{GitHub repository}
-      \field{year}{2013}
-    \endentry
-    \entry{ida-efiutils}{misc}{}
-      \name{author}{1}{}{%
-        {{uniquename=0,hash=536515b971214c61217ae42faf565ed2}{snare}{s\bibinitperiod}{}{}{}{}{}{}}%
-      }
-      \list{publisher}{1}{%
-        {GitHub}%
-      }
-      \strng{namehash}{536515b971214c61217ae42faf565ed2}
-      \strng{fullhash}{536515b971214c61217ae42faf565ed2}
-      \field{sortinit}{s}
-      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
-      \field{labelyear}{2014}
-      \field{datelabelsource}{}
-      \field{labelnamesource}{author}
-      \field{howpublished}{\url{https://github.com/snare/ida-efiutils}}
-      \field{journaltitle}{GitHub repository}
-      \field{year}{2014}
-    \endentry
-    \entry{r2windbg}{online}{}
-      \field{sortinit}{W}
-      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
-      \field{labelyear}{2014}
-      \field{datelabelsource}{}
-      \field{labeltitlesource}{title}
-      \field{title}{WinDbg in radare2}
-      \field{year}{2014}
-      \verb{url}
-      \verb https://github.com/radare/radare2/blob/master/doc/windbg
+      \verb https://reverseengineering.stackexchange.com/questions/5998/floating-point-in-re-intermediate-languages-like-vine-il-bap-il-and-google-zyn
       \endverb
     \endentry
   \endsortlist

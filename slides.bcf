@@ -2239,17 +2239,11 @@
     <bcf:datasource type="file" datatype="bibtex">refs.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">r2advert</bcf:citekey>
-    <bcf:citekey order="2">pwnablekr</bcf:citekey>
-    <bcf:citekey order="3">r2windbg</bcf:citekey>
-    <bcf:citekey order="4">qemu-omap</bcf:citekey>
-    <bcf:citekey order="5">uefitool</bcf:citekey>
-    <bcf:citekey order="6">bios-extract</bcf:citekey>
-    <bcf:citekey order="7">r2types</bcf:citekey>
-    <bcf:citekey order="8">r2pipe</bcf:citekey>
-    <bcf:citekey order="9">ida-efiutils</bcf:citekey>
-    <bcf:citekey order="10">r2esiltv</bcf:citekey>
-    <bcf:citekey order="11">openreil</bcf:citekey>
+    <bcf:citekey order="1">reil-zynamics</bcf:citekey>
+    <bcf:citekey order="2">r2advert</bcf:citekey>
+    <bcf:citekey order="3">r2esiltv</bcf:citekey>
+    <bcf:citekey order="4">openreil</bcf:citekey>
+    <bcf:citekey order="5">floating-point-SO</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyt" type="entry" sortscheme="nyt">
   <bcf:sorting>
