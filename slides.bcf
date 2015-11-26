@@ -2239,14 +2239,24 @@
     <bcf:datasource type="file" datatype="bibtex">refs.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">reil</bcf:citekey>
-    <bcf:citekey order="2">reil-zynamics</bcf:citekey>
-    <bcf:citekey order="3">bap-handbook</bcf:citekey>
-    <bcf:citekey order="4">bitblaze</bcf:citekey>
-    <bcf:citekey order="5">r2advert</bcf:citekey>
-    <bcf:citekey order="6">r2esiltv</bcf:citekey>
-    <bcf:citekey order="7">openreil</bcf:citekey>
-    <bcf:citekey order="8">floating-point-SO</bcf:citekey>
+    <bcf:citekey order="1">il-wikipedia</bcf:citekey>
+    <bcf:citekey order="2">reil</bcf:citekey>
+    <bcf:citekey order="3">reil-zynamics</bcf:citekey>
+    <bcf:citekey order="4">bap-handbook</bcf:citekey>
+    <bcf:citekey order="5">bitblaze</bcf:citekey>
+    <bcf:citekey order="6">vine-manual</bcf:citekey>
+    <bcf:citekey order="7">vine-vuln-analysis</bcf:citekey>
+    <bcf:citekey order="8">rreil</bcf:citekey>
+    <bcf:citekey order="9">openreil</bcf:citekey>
+    <bcf:citekey order="10">r2esil</bcf:citekey>
+    <bcf:citekey order="11">r2esil-instruction-set</bcf:citekey>
+    <bcf:citekey order="12">r2advert</bcf:citekey>
+    <bcf:citekey order="13">r2esiltv</bcf:citekey>
+    <bcf:citekey order="14">openreil</bcf:citekey>
+    <bcf:citekey order="15">tie</bcf:citekey>
+    <bcf:citekey order="16">floating-point-SO</bcf:citekey>
+    <bcf:citekey order="17">tie</bcf:citekey>
+    <bcf:citekey order="18">il-optimization</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyt" type="entry" sortscheme="nyt">
   <bcf:sorting>

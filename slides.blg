@@ -1,16 +1,17 @@
 [0] Config.pm:327> INFO - This is Biber 2.2
-[0] Config.pm:330> INFO - Logfile is 'slides.blg'
-[60] biber:285> INFO - === Thu Nov 26, 2015, 08:56:00
-[60] Biber.pm:334> INFO - Reading 'slides.bcf'
-[267] Biber.pm:677> INFO - Found 8 citekeys in bib section 0
-[280] Biber.pm:3054> INFO - Processing section 0
-[293] Biber.pm:3193> INFO - Looking for bibtex format file 'refs.bib' for section 0
-[306] bibtex.pm:1059> INFO - Decoding LaTeX character macros into UTF-8
-[319] bibtex.pm:922> INFO - Found BibTeX data source 'refs.bib'
-[395] Utils.pm:147> WARN - The field 'title' in entry 'openreil' cannot be null, deleting it
-[554] UCollate.pm:66> INFO - Overriding locale 'ru-RU' defaults 'variable = shifted' with 'variable = non-ignorable'
-[554] UCollate.pm:66> INFO - Overriding locale 'ru-RU' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[555] Biber.pm:2931> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'ru-RU'
-[581] bbl.pm:505> INFO - Writing 'slides.bbl' with encoding 'UTF-8'
-[608] bbl.pm:596> INFO - Output to slides.bbl
-[608] Biber.pm:107> INFO - WARNINGS: 1
+[1] Config.pm:330> INFO - Logfile is 'slides.blg'
+[91] biber:285> INFO - === Thu Nov 26, 2015, 11:49:05
+[91] Biber.pm:334> INFO - Reading 'slides.bcf'
+[299] Biber.pm:677> INFO - Found 16 citekeys in bib section 0
+[312] Biber.pm:3054> INFO - Processing section 0
+[325] Biber.pm:3193> INFO - Looking for bibtex format file 'refs.bib' for section 0
+[347] bibtex.pm:1059> INFO - Decoding LaTeX character macros into UTF-8
+[368] bibtex.pm:922> INFO - Found BibTeX data source 'refs.bib'
+[393] Utils.pm:147> WARN - Name "Xue Lei, Wenqing Fan, Wei Huang, Yixian Yand" has too many commas: skipping name
+[445] Utils.pm:147> WARN - The field 'title' in entry 'openreil' cannot be null, deleting it
+[693] UCollate.pm:66> INFO - Overriding locale 'ru-RU' defaults 'variable = shifted' with 'variable = non-ignorable'
+[694] UCollate.pm:66> INFO - Overriding locale 'ru-RU' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[694] Biber.pm:2931> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'ru-RU'
+[727] bbl.pm:505> INFO - Writing 'slides.bbl' with encoding 'UTF-8'
+[772] bbl.pm:596> INFO - Output to slides.bbl
+[772] Biber.pm:107> INFO - WARNINGS: 2

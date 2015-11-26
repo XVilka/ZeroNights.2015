@@ -19,6 +19,38 @@
 
 \refsection{0}
   \sortlist{nyt}{nyt}
+    \entry{rreil}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=9465a253411d266a10b325d94d79fef4}{Alexander\bibnamedelima Sepp}{A\bibinitperiod\bibinitdelim S\bibinitperiod}{Bigdan\bibnamedelima Mihaila}{B\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=d7071595ec6e99a2f19c13fdabdf09e1}{Simon}{S\bibinitperiod}{Axel}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{248ffb1d92ce41beef2d242e0a7c03d4}
+      \strng{fullhash}{248ffb1d92ce41beef2d242e0a7c03d4}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{www2.in.tum.de/bib/files/sepp11precise.pdf}}
+      \field{title}{Precise Static Analysis of Binaries by Extracting Relational Information}
+      \field{year}{2011}
+    \endentry
+    \entry{vine-vuln-analysis}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=cbeda943714c044f03a749cf0a15f952}{Brumley}{B\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{cbeda943714c044f03a749cf0a15f952}
+      \strng{fullhash}{cbeda943714c044f03a749cf0a15f952}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2008}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Analysis and Defense of Vulnerabilities in Binary Code}
+      \field{year}{2008}
+    \endentry
     \entry{bap-handbook}{article}{}
       \name{author}{2}{}{%
         {{uniquename=0,hash=83084d508e67ba42211531ee2ede2a04}{David\bibnamedelima Brumley}{D\bibinitperiod\bibinitdelim B\bibinitperiod}{Edward\bibnamedelimb J.\bibnamedelimi Schwartz}{E\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{Ivan\bibnamedelima Jager}{I\bibinitperiod\bibinitdelim J\bibinitperiod}}%
@@ -63,6 +95,34 @@
       \verb{url}
       \verb http://radare.tv/a/44
       \endverb
+    \endentry
+    \entry{il-wikipedia}{online}{}
+      \field{sortinit}{I}
+      \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
+      \field{labelyear}{2015}
+      \field{datelabelsource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{Intermediate Language - Wikipedia}
+      \field{year}{2015}
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Intermediate_language
+      \endverb
+    \endentry
+    \entry{tie}{article}{}
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=6e08303b01e0edeac8baaffd8ca8b91d}{JongHyup\bibnamedelima Lee}{J\bibinitperiod\bibinitdelim L\bibinitperiod}{Thanassis\bibnamedelima Avgerinos}{T\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=cbeda943714c044f03a749cf0a15f952}{Brumley}{B\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{dd44ef91f2a4d502859aa17c783f1466}
+      \strng{fullhash}{dd44ef91f2a4d502859aa17c783f1466}
+      \field{sortinit}{J}
+      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
+      \field{labelyear}{2011}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{TIE: Princpled Reverse Engineering of Types in Binary Programs}
+      \field{year}{2011}
     \endentry
     \entry{openreil}{misc}{}
       \name{author}{1}{}{%
@@ -116,6 +176,59 @@
       \field{year}{2014}
       \verb{url}
       \verb https://reverseengineering.stackexchange.com/questions/5998/floating-point-in-re-intermediate-languages-like-vine-il-bap-il-and-google-zyn
+      \endverb
+    \endentry
+    \entry{vine-manual}{article}{}
+      \name{author}{1}{}{%
+        {{uniquename=1,hash=7f9a765565951910214087ac9a74ec58}{Team}{T\bibinitperiod}{BitBlaze}{B\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{7f9a765565951910214087ac9a74ec58}
+      \strng{fullhash}{7f9a765565951910214087ac9a74ec58}
+      \field{sortinit}{T}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{labelyear}{2009}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Vine Installation and User Manual}
+      \field{year}{2009}
+    \endentry
+    \entry{r2esil}{online}{}
+      \name{author}{1}{}{%
+        {{uniquename=1,hash=c4c69a8dd76dd4e56a9c114e9f10329d}{Team}{T\bibinitperiod}{Radare2}{R\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{c4c69a8dd76dd4e56a9c114e9f10329d}
+      \strng{fullhash}{c4c69a8dd76dd4e56a9c114e9f10329d}
+      \field{sortinit}{T}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{extrayear}{1}
+      \field{labelyear}{2015}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ESIL description}
+      \field{year}{2015}
+      \verb{url}
+      \verb https://github.com/radare/radare2book/blob/master/esil.md
+      \endverb
+    \endentry
+    \entry{r2esil-instruction-set}{online}{}
+      \name{author}{1}{}{%
+        {{uniquename=1,hash=c4c69a8dd76dd4e56a9c114e9f10329d}{Team}{T\bibinitperiod}{Radare2}{R\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{c4c69a8dd76dd4e56a9c114e9f10329d}
+      \strng{fullhash}{c4c69a8dd76dd4e56a9c114e9f10329d}
+      \field{sortinit}{T}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{extrayear}{2}
+      \field{labelyear}{2015}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{ESIL Instruction Set}
+      \field{year}{2015}
+      \verb{url}
+      \verb https://github.com/radare/radare2book/blob/master/esil.md#esil-instruction-set
       \endverb
     \endentry
     \entry{reil}{article}{}

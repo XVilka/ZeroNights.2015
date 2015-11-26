@@ -10,6 +10,8 @@
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 \usepackage{url}
+\usepackage{listings}
+\usepackage{booktabs}
 \usepackage{hyperref}
 \usepackage{drawstack}
 
@@ -104,7 +106,8 @@
 \begin{frame}[fragile]
   \frametitle{Что такое Intermediate Language}
   \begin{itemize}
-  \item  Intermediate language is the language of an abstract machine designed to aid in the analysis of computer programs.
+  \item {\it Intermediate language is the language of an abstract machine designed to aid in the analysis
+  of computer programs. \cite{il-wikipedia}}
   \item Используется как в теории (и практике) компиляции
   \item Аналогично незаменим и для декомпиляции
   \item Огромное количество разных академических и практических воплощений
@@ -146,12 +149,13 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{BAP}
-  \begin{itemize}
-  \item DEMO
-  \end{itemize}
-\end{frame}
+%
+%\begin{frame}[fragile]
+%  \frametitle{BAP}
+%  \begin{itemize}
+%  \item DEMO
+%  \end{itemize}
+%\end{frame}
 
 \begin{frame}[fragile]
   \frametitle{BitBlaze (VineIL/VEX)}
@@ -176,7 +180,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Vine IL}
+  \frametitle{Vine IL \footfullcite{vine-manual} \footfullcite{vine-vuln-analysis}}
   \begin{itemize}
   \item Бесконечная память
   \item Бесконечное количество регистров
@@ -188,7 +192,7 @@
 \begin{frame}[fragile]
   \frametitle{RREIL, OpenREIL, MAIL}
   \begin{itemize}
-  \item RREIL - гибкий язык, замена REIL
+  \item RREIL \footfullcite{rreil} - гибкий язык, замена REIL
   \item RREIL - поддержка типов
   \item RREIL - интересная концепция ``доменов''
   \item MAIL - IL, созданный для анализа Malware
@@ -200,7 +204,7 @@
 \begin{frame}[fragile]
   \frametitle{RREIL, OpenREIL, MAIL}
   \begin{itemize}
-  \item OpenREIL - проект, созданный для использования REIL в современных реалиях
+  \item OpenREIL \footfullcite{openreil} - проект, созданный для использования REIL в современных реалиях
   \item OpenREIL - полноценный фреймворк, как и BAP
   \item OpenREIL отличается от оригинального REIL
   \item Использует libVEX и имеет поддержку SMT-solving
@@ -214,7 +218,7 @@
 \begin{frame}[fragile]
   \frametitle{Краткое описание}
      \begin{itemize}
-        \item Evaluable Strings Intermediate Language
+        \item Evaluable Strings Intermediate Language \footfullcite{r2esil}
 		\item Использует обратную польскую нотацию (для скорости)
 		\item Не предназначен для чтения человеком
 		\item По ``уровню'' приближен к VEX
@@ -238,9 +242,31 @@
 
 \begin{frame}[fragile]
   \frametitle{Операнды ESIL}
-     \begin{itemize}
-        \item DEMO
-      \end{itemize}
+    \begin{table}[H]
+	\caption{ESIL Operands \footfullcite{r2esil-instruction-set}}
+	\begin{center}
+		\resizebox{\linewidth}{!}{%
+		\begin{tabular}{|*{4}{c|}}
+		\hline
+		\textbf{ESIL Opcode} & Operands & Name & Desription\\
+		\hline
+		\$ & src & Syscall & syscall \\
+		\hline
+		\$\$ & src & Instruction address & Get address of current instruction \\
+		\hline
+		== & src,dst & Compare & v = dst - src ; update\_eflags(v) \\
+		\hline
+		\textless &	src,dst & Smaller &	stack = (dst \textless src) \\
+		\hline
+		\textless= & src,dst & Smaller or Equal	& stack = (dst \textless= src) \\
+		\hline
+		\textgreater &	src,dst & Bigger & stack = (dst \textgreater src) \\
+		\hline
+		|= & src,reg & OR eq & reg = reg | src \\
+		\hline
+		\end{tabular}}
+	\end{center}
+	\end{table}
 \end{frame}
 
 % -------------------------------------------------------------------------------------
@@ -257,7 +283,7 @@
   \frametitle{Radare2 утилиты}
      \begin{itemize}
         \item rax2
-        \item \alert{rabin2}
+        \item rabin2
         \item rasm2
         \item radiff2
         \item rafind2
@@ -280,15 +306,15 @@
 \begin{frame}[fragile]
   \frametitle{Radare2 — Основные команды CLI-режима}
   \begin{enumerate}
-   \item r2 -A или r2 + aaa : Анализ
-   \item s : Переход по указанному адресу
-   \item pdf : Дизассемблирование функции
-   \item af? : Анализ функции
-   \item ax? : Анализ XREF
-   \item /? : Поиск
-   \item ps? : Напечатать строку (print string)
-   \item C? : Комментарии
-   \item w? : Запись (hex, опкодов, etc)
+   \item \alert{r2 -A} или \alert{r2 + aaa} : Анализ
+   \item \alert{s} : Переход по указанному адресу
+   \item \alert{pdf} : Дизассемблирование функции
+   \item \alert{af?} : Анализ функции
+   \item \alert{ax?} : Анализ XREF
+   \item \alert{/?} : Поиск
+   \item \alert{ps?} : Напечатать строку (print string)
+   \item \alert{C?} : Комментарии
+   \item \alert{w?} : Запись (hex, опкодов, etc)
  \end{enumerate}
 \end{frame}
 
@@ -296,29 +322,29 @@
 \begin{frame}[fragile]
   \frametitle{Radare2 — Основные команды визуального режима}
   \begin{enumerate}
-  \item V? или просто ? : Помощь по командам
-  \item p/P : переключение между разными визуальными представлениями
+  \item \alert{V?} или просто \alert{?} : Помощь по командам
+  \item \alert{p/P} : переключение между разными визуальными представлениями
   \item Навигация с помощью стрелок/hjkl
-  \item o : переместиться по адресу
-  \item e : визуальный режим настроек
-  \item v : список функций
-  \item \_ : HUD
-  \item V : ASCII Graph
-  \item 0-9 : Прыжок на функцию
-  \item u : Undo
+  \item \alert{o} : переместиться по адресу
+  \item \alert{e} : визуальный режим настроек
+  \item \alert{v} : список функций
+  \item \alert{\_} : HUD
+  \item \alert{V} : ASCII Graph
+  \item \alert{0-9} : Прыжок на функцию
+  \item \alert{u} : Undo
  \end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Эмуляция участков кода}
      \begin{itemize}
-        \item ae* набор инструкций
-		\item aei - инициализация ESIL VM
-		\item aeim - инициализация стека/памяти VM
-		\item aeip - установка IP (Instruction Pointer)
-		\item aes - step в режиме эмуляции ESIL
-		\item aec[u] - continue [until]
-		\item aef - эмуляция функции
+        \item \alert{ae*} набор инструкций
+		\item \alert{aei} - инициализация ESIL VM
+		\item \alert{aeim} - инициализация стека/памяти VM
+		\item \alert{aeip} - установка IP (Instruction Pointer)
+		\item \alert{aes} - step в режиме эмуляции ESIL
+		\item \alert{aec[u]} - continue [until]
+		\item \alert{aef} - эмуляция функции
       \end{itemize}
 \end{frame}
 
@@ -451,6 +477,7 @@
 		\item Взяты идеи из RREIL и MAIL
 		\item Использование SSA на этапе лифтинга ESIL -> Radeco IL
 		\item Встроенная поддержка DCE (Dead Code Elimination)
+		\item Базовая возможность вывода типов \footfullcite{tie}
       \end{itemize}
 \end{frame}
 
@@ -498,7 +525,7 @@
         \item Генерация C кода
 		\item Поддержка нативных типов
 		\item Синхронизация с отладкой
-		\item Автовывод типов/распознавание объектов и классов
+		\item Автовывод типов/распознавание объектов и классов\footfullcite{tie} \footfullcite{il-optimization}
       \end{itemize}
 \end{frame}
 
