@@ -2253,10 +2253,12 @@
     <bcf:citekey order="12">r2advert</bcf:citekey>
     <bcf:citekey order="13">r2esiltv</bcf:citekey>
     <bcf:citekey order="14">openreil</bcf:citekey>
-    <bcf:citekey order="15">tie</bcf:citekey>
-    <bcf:citekey order="16">floating-point-SO</bcf:citekey>
-    <bcf:citekey order="17">tie</bcf:citekey>
-    <bcf:citekey order="18">il-optimization</bcf:citekey>
+    <bcf:citekey order="15">radeco</bcf:citekey>
+    <bcf:citekey order="16">tie</bcf:citekey>
+    <bcf:citekey order="17">floating-point-SO</bcf:citekey>
+    <bcf:citekey order="18">bokken</bcf:citekey>
+    <bcf:citekey order="19">tie</bcf:citekey>
+    <bcf:citekey order="20">il-optimization</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyt" type="entry" sortscheme="nyt">
   <bcf:sorting>

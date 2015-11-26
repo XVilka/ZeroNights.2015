@@ -36,6 +36,18 @@
       \field{title}{Precise Static Analysis of Binaries by Extracting Relational Information}
       \field{year}{2011}
     \endentry
+    \entry{bokken}{online}{}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelyear}{2015}
+      \field{datelabelsource}{}
+      \field{labeltitlesource}{title}
+      \field{title}{Bokken}
+      \field{year}{2015}
+      \verb{url}
+      \verb http://bokken.re
+      \endverb
+    \endentry
     \entry{vine-vuln-analysis}{article}{}
       \name{author}{1}{}{%
         {{uniquename=0,hash=cbeda943714c044f03a749cf0a15f952}{Brumley}{B\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
@@ -193,6 +205,25 @@
       \field{title}{Vine Installation and User Manual}
       \field{year}{2009}
     \endentry
+    \entry{radeco}{misc}{}
+      \name{author}{1}{}{%
+        {{uniquename=1,hash=c4c69a8dd76dd4e56a9c114e9f10329d}{Team}{T\bibinitperiod}{Radare2}{R\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {GitHub}%
+      }
+      \strng{namehash}{c4c69a8dd76dd4e56a9c114e9f10329d}
+      \strng{fullhash}{c4c69a8dd76dd4e56a9c114e9f10329d}
+      \field{sortinit}{T}
+      \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
+      \field{extrayear}{1}
+      \field{labelyear}{2015}
+      \field{datelabelsource}{}
+      \field{labelnamesource}{author}
+      \field{howpublished}{\url{https://github.com/radare/radeco}}
+      \field{journaltitle}{GitHub repository}
+      \field{year}{2015}
+    \endentry
     \entry{r2esil}{online}{}
       \name{author}{1}{}{%
         {{uniquename=1,hash=c4c69a8dd76dd4e56a9c114e9f10329d}{Team}{T\bibinitperiod}{Radare2}{R\bibinitperiod}{}{}{}{}}%
@@ -201,7 +232,7 @@
       \strng{fullhash}{c4c69a8dd76dd4e56a9c114e9f10329d}
       \field{sortinit}{T}
       \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
-      \field{extrayear}{1}
+      \field{extrayear}{2}
       \field{labelyear}{2015}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
@@ -220,7 +251,7 @@
       \strng{fullhash}{c4c69a8dd76dd4e56a9c114e9f10329d}
       \field{sortinit}{T}
       \field{sortinithash}{423d138a005a533b47e6475e39378bf2}
-      \field{extrayear}{2}
+      \field{extrayear}{3}
       \field{labelyear}{2015}
       \field{datelabelsource}{}
       \field{labelnamesource}{author}
