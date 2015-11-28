@@ -1,4 +1,4 @@
-all: slides
+all: slides-bib
 
 slides: slides.tex
 	xelatex slides.tex
@@ -13,4 +13,4 @@ slides-bib: slides.tex
 	rm -f *.aux *.snm *.toc *.log *.naz *.out
 
 clean:
-	rm -f *.aux *.snm *.toc *.log *.nax *.out *.nav
+	rm -f *.aux *.snm *.toc *.log *.nax *.out *.nav *.blg *.bcf *.bbl *.vrb
