@@ -1,7 +1,0 @@
-\frametitle{Развитие декомпилятора Radeco}
-     \begin{itemize}
-        \item Генерация C кода
-		\item Поддержка нативных типов
-		\item Синхронизация с отладкой
-		\item Автовывод типов/распознавание объектов и классов\footfullcite{tie} \footfullcite{il-optimization}
-      \end{itemize}
