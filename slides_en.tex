@@ -1,0 +1,539 @@
+\documentclass[10pt,pdf,utf8,english,compress,hyperref={unicode}]{beamer}
+\usepackage{ifxetex}
+\usepackage[english,russian]{babel}
+\ifxetex
+\else
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\fi
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{drawstack}
+
+\graphicspath{{./pix/}}
+%\usetheme[useTitleProgressBar]{m}
+\usetheme{m}
+
+% ------ Embed URL in the reference title ------
+
+\ifxetex
+% ---- START
+\else
+\renewbibmacro*{url+urldate}{}
+
+\newbibmacro{string+doiurl}[1]{%
+	\iffieldundef{doi}{%
+		\iffieldundef{url}{%
+			#1%
+		}{%
+			\href{\thefield{url}}{#1}%
+		}%
+	}{%
+		\href{http://dx.doi.org/\thefield{doi}}{#1}%
+	}%
+}
+
+\DeclareFieldFormat{title}{\usebibmacro{string+doiurl}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article,incollection]{title}{\usebibmacro{string+doiurl}{\mkbibemph{#1}}}
+
+% ------ Nice and shiny bibliography list -------
+
+\setbeamertemplate{bibliography item}{%
+	\ifboolexpr{test {\ifentrytype{book}} or test {\ifentrytype{mvbook}}
+	or test {\ifentrytype{collection}} or test {\ifentrytype{mvcollection}}
+	or test {\ifentrytype{reference}} or test {\ifentrytype{mvreference}} }
+	{\setbeamertemplate{bibliography item}[book]}
+	{\ifentrytype{online}
+		{\setbeamertemplate{bibliography item}[online]}
+		{\setbeamertemplate{bibliography item}[article]}}%
+	\usebeamertemplate{bibliography item}}
+
+\defbibenvironment{bibliography}
+	{\list{}
+		{\settowidth{\labelwidth}{\usebeamertemplate{bibliography item}}%
+		\setlength{\leftmargin}{\labelwidth}%
+		\setlength{\labelsep}{\biblabelsep}%
+		\addtolength{\leftmargin}{\labelsep}%
+		\setlength{\itemsep}{\bibitemsep}%
+		\setlength{\parsep}{\bibparsep}}}
+	{\endlist}
+	{\item}
+% ----- END
+\fi
+
+% ------ Document starting here -------
+
+
+\title{ESIL - Универсальный IL}
+\subtitle{ESIL - Intermediate Language для radare2}
+\author{Anton Kochkov (@akochkov)}
+\date{\today}
+\institute{ZeroNights 11-2015}
+
+\ifxetex
+\else
+\addbibresource{refs.bib}
+% Just a hack to workaround 'Package keyvar error: langjapanese undefined'
+% Will be fixed in biblatex 3.2 and biber 2.3
+% See more at:
+% https://tex.stackexchange.com/questions/277314/package-keyval-error-langjapanese-undefined
+\NewBibliographyString{langjapanese}
+\NewBibliographyString{fromjapanese}
+\fi
+
+% ------------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+\begin{frame}[fragile]
+  \frametitle{Anton Kochkov}
+    \begin{itemize}
+    \item Moscow, Russia
+    \item Love Reverse Engineering, foreign languages and travel
+	\item Member of R2 crew, radare2 evangelist
+    \item Security Code Ltd.
+    \end{itemize}
+\end{frame}
+
+% ------------------------------------------------------------------------------------
+\section{Intermediate Languages}
+
+\begin{frame}[fragile]
+  \frametitle{What is Intermediate Language?}
+  \begin{itemize}
+  \item {\it Intermediate language is the language of an abstract machine designed to aid in the analysis
+  of computer programs. \cite{il-wikipedia}}
+  \item Heavily used for academic research and real world tools
+  \item Vital for decompilation process
+  \item Base for various kind of applications - SMT, AEG, AEP, etc
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{REIL \footfullcite{reil}}
+  \begin{itemize}
+  \item Invented by Zynamics company
+  \item BinNavi, BinDiff were both based on top of REIL
+  \item x86, ARM, PowerPC architectures supported
+  \item Бесконечная память VM
+  \item Бесконечное количество регистров VM
+  \item Без Floating Point
+  \item Оригинальные утилиты написаны на Java
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{REIL}
+  \begin{itemize}
+  \item 17 инструкций
+  \item Алиасы для реальных регистров (eax, ebx, r0, \ldots) \footfullcite{reil-zynamics}
+  \end{itemize}
+  % TODO: Make a table of them
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{BAP}
+  \begin{itemize}
+  \item BAP - Binary Analysis Platform \footfullcite{bap-handbook}
+  \item Настоящее имя IL - BIL
+  \item Развитый фреймворк
+  \item Интеграция с другими утилитами - TEMU, libVEX, IDA Pro, Qira, \ldots
+  \item Ориентирован на x86, ARM
+  \item Без Floating Point
+  \end{itemize}
+\end{frame}
+
+%
+%\begin{frame}[fragile]
+%  \frametitle{BAP}
+%  \begin{itemize}
+%  \item DEMO
+%  \end{itemize}
+%\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{BitBlaze (VineIL/VEX)}
+  \begin{itemize}
+  \item BitBlaze \footfullcite{bitblaze} - платформа, аналогичная BAP
+  \item Имеет несколько промежуточных языков
+  \item VEX IL (libVEX из valgrind) - ``нижний'' уровень
+  \item Vine IL - ``верхний'' уровень
+  \item Написан на OCaml + C++
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{VEX IL}
+  \begin{itemize}
+  \item Явное указание всех side-эффектов для команд
+  \item Ближе всего к ESIL
+  \item Оттестирован и используется в Valgrind
+  \item Хорошо подходит для эмуляции кода
+  \item Избыточен
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Vine IL \footfullcite{vine-manual} \footfullcite{vine-vuln-analysis}}
+  \begin{itemize}
+  \item Бесконечная память
+  \item Бесконечное количество регистров
+  \item Поддержка типов
+  \item Поддержка ``variable scope''
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{RREIL, OpenREIL, MAIL}
+  \begin{itemize}
+  \item RREIL \footfullcite{rreil} - гибкий язык, замена REIL
+  \item RREIL - поддержка типов
+  \item RREIL - интересная концепция ``доменов''
+  \item MAIL - IL, созданный для анализа Malware
+  \item MAIL - позволяет программе перезаписывать себя саму
+  \item RREIL и MAIL - опять отсутствие Floating Point
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{RREIL, OpenREIL, MAIL}
+  \begin{itemize}
+  \item OpenREIL \footfullcite{openreil} - проект, созданный для использования REIL в современных реалиях
+  \item OpenREIL - полноценный фреймворк, как и BAP
+  \item OpenREIL отличается от оригинального REIL
+  \item Использует libVEX и имеет поддержку SMT-solving
+  \end{itemize}
+\end{frame}
+
+
+% -------------------------------------------------------------------------------------
+\section{ESIL - сходства и отличия}
+
+\begin{frame}[fragile]
+  \frametitle{Краткое описание}
+     \begin{itemize}
+        \item Evaluable Strings Intermediate Language \footfullcite{r2esil}
+		\item Использует обратную польскую нотацию (для скорости)
+		\item Не предназначен для чтения человеком
+		\item По ``уровню'' приближен к VEX
+		\item Небольшое количество инструкций
+		\item Полный учёт side-эффектов
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Краткое описание}
+     \begin{itemize}
+        \item Сроектирован для большого количества архитектур
+		\item Бесконечная память
+		\item Бесконечные регистры
+		\item Алиасы (использование ``нативных'' имен)
+		\item Есть возможность вызывать куски нативного кода (+syscall)
+		\item Возможность добавления ``custom ops''
+		\item Нет Floating Point (будет в следующей версии)
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Операнды ESIL}
+    \begin{table}[H]
+	\caption{ESIL Operands \footfullcite{r2esil-instruction-set}}
+	\begin{center}
+		\resizebox{\linewidth}{!}{%
+		\begin{tabular}{|*{4}{c|}}
+		\hline
+		\textbf{ESIL Opcode} & Operands & Name & Desription\\
+		\hline
+		\$ & src & Syscall & syscall \\
+		\hline
+		\$\$ & src & Instruction address & Get address of current instruction \\
+		\hline
+		== & src,dst & Compare & v = dst - src ; update\_eflags(v) \\
+		\hline
+		\textless &	src,dst & Smaller &	stack = (dst \textless src) \\
+		\hline
+		\textless= & src,dst & Smaller or Equal	& stack = (dst \textless= src) \\
+		\hline
+		\textgreater &	src,dst & Bigger & stack = (dst \textgreater src) \\
+		\hline
+		|= & src,reg & OR eq & reg = reg | src \\
+		\hline
+		\end{tabular}}
+	\end{center}
+	\end{table}
+\end{frame}
+
+% -------------------------------------------------------------------------------------
+\section{Практическое применение}
+
+\begin{frame}[fragile]
+	\frametitle{Radare}
+	\begin{figure}
+		\includegraphics[scale=0.2]{r2-ubahn.jpg}\footfullcite{r2advert}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Radare2 утилиты}
+     \begin{itemize}
+        \item rax2
+        \item rabin2
+        \item rasm2
+        \item radiff2
+        \item rafind2
+        \item rahash2
+        \item radare2
+        \item r2pm
+        \item rarun2/ragg2/ragg2-cc
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{1 command \textless—\textgreater 1 Reverse-Engineering'notion}
+  \begin{enumerate}
+  \item Каждый символ команды что-то значит \alert{(w = write, p = print)}
+  \item Обычно команды - это аббревиатуры действий \alert{pdf = p \textless-\textgreater print d \textless-\textgreater disassemble f \textless-\textgreater function }
+  \item Доступна короткая справка для каждой команды \textbf{cmd?}, например \alert{pdf?},\alert{?}, \alert{???}, \alert{???}, \alert{?\$?}, \alert{?@?}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Radare2 — Основные команды CLI-режима}
+  \begin{enumerate}
+   \item \alert{\bf{r2 -A}} или \alert{\bf{r2}} + \alert{\bf{aaa}} : Анализ
+   \item \alert{\bf{s}} : Переход по указанному адресу
+   \item \alert{\bf{pdf}} : Дизассемблирование функции
+   \item \alert{\bf{af?}} : Анализ функции
+   \item \alert{\bf{ax?}} : Анализ XREF
+   \item \alert{\bf{/?}} : Поиск
+   \item \alert{\bf{ps?}} : Напечатать строку (print string)
+   \item \alert{\bf{C?}} : Комментарии
+   \item \alert{\bf{w?}} : Запись (hex, опкодов, etc)
+ \end{enumerate}
+\end{frame}
+
+\section{Radare2 — Visual mode}
+\begin{frame}[fragile]
+  \frametitle{Radare2 — Основные команды визуального режима}
+  \begin{enumerate}
+  \item \alert{\bf{V?}} или просто \alert{\bf{?}} : Помощь по командам
+  \item \alert{\bf{p/P}} : переключение между разными визуальными представлениями
+  \item Навигация с помощью стрелок/hjkl
+  \item \alert{\bf{o}} : переместиться по адресу
+  \item \alert{\bf{e}} : визуальный режим настроек
+  \item \alert{\bf{v}} : список функций
+  \item \alert{\bf{\_}} : HUD
+  \item \alert{\bf{V}} : ASCII Graph
+  \item \alert{\bf{0-9}} : Прыжок на функцию
+  \item \alert{\bf{u}} : Undo
+ \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Эмуляция участков кода}
+     \begin{itemize}
+        \item \alert{\bf{ae*}} набор инструкций
+		\item \alert{\bf{aei}} - инициализация ESIL VM
+		\item \alert{\bf{aeim}} - инициализация стека/памяти VM
+		\item \alert{\bf{aeip}} - установка IP (Instruction Pointer)
+		\item \alert{\bf{aes}} - step в режиме эмуляции ESIL
+		\item \alert{\bf{aec[u]}} - continue [until]
+		\item \alert{\bf{aef}} - эмуляция функции
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Эмуляция участков кода}
+     \begin{itemize}
+        \item DEMO
+      \end{itemize}
+\end{frame}
+
+% show demo here - demos/demo5_it8502e
+\begin{frame}[fragile]
+\ifxetex
+  \frametitle{Embedded controller - 8051 - ESIL VM}
+\else
+  \frametitle{Embedded controller - 8051 - ESIL VM \footfullcite{r2esiltv}}
+\fi
+  \begin{itemize}
+	  \item \alert{\bf{r2 -a 8051 ite\_it8502.rom}}
+	  \item \alert{\bf{. ite\_it8502.r2}}
+	  \item \alert{\bf{e io.cache=true}} для использования кеширования IO
+	  \item запустим \alert{\bf{aei}}
+	  \item запустим \alert{\bf{aeim}}
+	  \item запустим \alert{\bf{aeip}} для старта с момента указания команды
+	  \item \alert{\bf{aecu [addr]}} для эмуляции, пока не достигнем IP = [addr]
+  \end{itemize}
+\end{frame}
+% show demo here
+% Reference to the example from here? http://radare.tv/a/44
+
+% Check before the show! Probably won't work
+\begin{frame}[fragile]
+  \frametitle{Совместная отладка}
+     \begin{itemize}
+		\item Использование ``подсказок'' ESIL при визуальной отладке
+        \item DEMO
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Эмуляция VM}
+     \begin{itemize}
+        \item Позволяет выполнить распаковку или выполнение в VM
+		\item Хороший пример - использование ESIL для распаковки Baleful \footfullcite{esil-baleful}
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Автоматическое отображение результатов эмуляции в дизассемблере}
+     \begin{itemize}
+        \item Отображает в комментариях значения регистров и пямяти
+		\item Использует тот же механизм эмуляции кода ESIL VM
+		\item Показывает likely/unlikely для условных переходов
+		\item \alert{\bf{e asm.emu=true}}
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Автоматическое отображение результатов эмуляции в дизассемблере}
+     \begin{itemize}
+        \item DEMO
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Конвертация в другие языки - OpenREIL}
+     \begin{itemize}
+        \item OpenREIL - развитый фреймфорк
+		\item Есть возможность использования SMT
+		\item Добавлена возможность конфертации ESIL в OpenREIL
+		\item Команда \alert{\bf{aetr}}
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Конвертация в другие языки - OpenREIL}
+     \begin{itemize}
+        \item DEMO
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Embedded controller - 8051 - ESIL2REIL}
+  \begin{itemize}
+	  \item \alert{\bf{r2 -a 8051 ite\_it8502.rom}}
+	  \item \alert{\bf{. ite\_it8502.r2}}
+	  \item run \alert{\bf{pae 36}} для показа ESIL представления функции 'set\_SMBus\_frequency'
+\ifxetex
+	  \item \alert{\bf{aetr \`{}pae 36\`}} для конвертации строки ESIL в REIL
+\else
+	  \item run aetr \`{}pae 36\`{} для конвертации строки ESIL в REIL\footfullcite{openreil}
+\fi
+	  \item Сохранить вывод в файл и передать управление в OpenREIL
+	  \item Можно проделать всё вышеперечисленное с помощью r2pipe скрипта
+  \end{itemize}
+\end{frame}
+
+% --------------------------------------------------------------------------------------
+\section{Radeco IL и radeco decompiler}
+
+\begin{frame}[fragile]
+  \frametitle{ESIL -> Radeco \footfullcite{radeco}}
+     \begin{itemize}
+        \item Использует ESIL в качестве входных данных
+		\item Использует другие метаданные из radare2
+		\item Соединяется с radare2 через r2pipe
+		\item Написан на Rust
+		\item Большая часть кода написана двумя студентами GSoC 2015
+		\item Авторы - Sushant Dinesh и David Kreuter \footfullcite{radeco-gsoc}
+		\item GSoC 2015 прошел под эгидой проекта Openwall
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Причины появления декомпилятора}
+     \begin{itemize}
+        \item Существующие FOSS декомпиляторы не учитывают последние исследования
+		\item Академические (но интересные) идеи не имеют полноценной реализации
+		\item Radare2 нуждается в декомпиляторе
+		\item Хорошее и интересное задание для Google Summer of Code
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Описание Radeco IL}
+     \begin{itemize}
+        \item Графовое представление
+		\item Взяты идеи из RREIL и MAIL
+		\item Использование SSA на этапе лифтинга ESIL -> Radeco IL
+		\item Встроенная поддержка DCE (Dead Code Elimination)
+		\item Базовая возможность вывода типов \footfullcite{tie}
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Radeco demo}
+     \begin{itemize}
+        \item DEMO
+      \end{itemize}
+\end{frame}
+
+% --------------------------------------------------------------------------------------
+\section{Пути будущего развития}
+
+\begin{frame}[fragile]
+  \frametitle{Поддерживаемые архитектуры}
+     \begin{itemize}
+        \item Сейчас лучше всего поддерживаются x86, ARM, GameBoy, 8051, etc
+		\item Глобальная цель - поддержка ESIL для всех архитектур в radare2
+		\item Поддержка профилей для выбранных модификаций/вариаций процессоров
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Поддерживаемые наборы инструкций}
+     \begin{itemize}
+        \item Floating point (LLVM/McSema) \footfullcite{floating-point-SO}
+		\item Векторные инструкции (SSE, AVX, Neon, etc)
+		\item VLIW инструкции (для эмуляции кода DSP)
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Визуальная отладка и трассировка}
+     \begin{itemize}
+        \item Улучшение UI
+		\item Возможность визуального сравнения эмуляции и нативного выполнения
+		\item Устранение ``мертвого'' кода из ASCII графов на лету
+		\item Интеграция в WebUI и Bokken \footfullcite{bokken}
+      \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Развитие декомпилятора Radeco}
+     \begin{itemize}
+        \item Генерация C кода
+		\item Поддержка нативных типов
+		\item Синхронизация с отладкой
+		\item Автовывод типов/распознавание объектов и классов\footfullcite{tie} \footfullcite{il-optimization}
+      \end{itemize}
+\end{frame}
+
+% ----------------------------------------------------------------------------------------
+\ifxetex
+\else
+\section{References}
+\begin{frame}[allowframebreaks]
+	\frametitle{A lot of them}
+	\printbibliography
+\end{frame}
+\fi
+
+\end{document}
