@@ -170,21 +170,22 @@
 \begin{frame}[fragile]
   \frametitle{Vine IL \footfullcite{vine-manual} \footfullcite{vine-vuln-analysis}}
   \begin{itemize}
-  \item Явное указание всех side-эффектов для команд
-  \item Ближе всего к ESIL
-  \item Оттестирован и используется в Valgrind
-  \item Хорошо подходит для эмуляции кода
-  \item Избыточен
+  \item Implicitly require side-эффектов для команд
+  \item Quite similar to ESIL
+  \item Very useful for direct code emulation
+  \item Too much unused information
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{VEX IL}
   \begin{itemize}
-  \item Бесконечная память
-  \item Бесконечное количество регистров
-  \item Поддержка типов
-  \item Поддержка ``variable scope''
+  \item Infinite memory
+  \item Infinite range of registers
+  \item Support types
+  \item ``Variable scope'' support
+  \item Used in Valgrind and a few other programs
+  \item Well-tested and actively maintained
   \end{itemize}
 \end{frame}
 
