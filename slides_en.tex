@@ -120,18 +120,18 @@
   \item Invented by Zynamics company
   \item BinNavi, BinDiff were both based on top of REIL
   \item x86, ARM, PowerPC architectures supported
-  \item Бесконечная память VM
-  \item Бесконечное количество регистров VM
-  \item Без Floating Point
-  \item Оригинальные утилиты написаны на Java
+  \item VM - Infinite memory
+  \item VM - Infinite range of registers
+  \item Missing Floating Point
+  \item Written in Java
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{REIL}
   \begin{itemize}
-  \item 17 инструкций
-  \item Алиасы для реальных регистров (eax, ebx, r0, \ldots) \footfullcite{reil-zynamics}
+  \item 17 instructions
+  \item Register aliases (eax, ebx, r0, \ldots) \footfullcite{reil-zynamics}
   \end{itemize}
   % TODO: Make a table of them
 \end{frame}
@@ -140,11 +140,11 @@
   \frametitle{BAP}
   \begin{itemize}
   \item BAP - Binary Analysis Platform \footfullcite{bap-handbook}
-  \item Настоящее имя IL - BIL
-  \item Развитый фреймворк
-  \item Интеграция с другими утилитами - TEMU, libVEX, IDA Pro, Qira, \ldots
-  \item Ориентирован на x86, ARM
-  \item Без Floating Point
+  \item IL itself called BIL
+  \item Well-maintained framework, various tools included
+  \item Integration with another tools like: TEMU, libVEX, IDA Pro, Qira, \ldots
+  \item Targeted for x86, ARM
+  \item Missing Floating Point
   \end{itemize}
 \end{frame}
 
@@ -159,16 +159,16 @@
 \begin{frame}[fragile]
   \frametitle{BitBlaze (VineIL/VEX)}
   \begin{itemize}
-  \item BitBlaze \footfullcite{bitblaze} - платформа, аналогичная BAP
-  \item Имеет несколько промежуточных языков
-  \item VEX IL (libVEX из valgrind) - ``нижний'' уровень
-  \item Vine IL - ``верхний'' уровень
-  \item Написан на OCaml + C++
+  \item BitBlaze \footfullcite{bitblaze} - also a platform, like BAP
+  \item Uses two intermediate languages
+  \item Vine IL - ``low-level'' language
+  \item VEX IL (libVEX from valgrind) - ``high-level'' language
+  \item Written in OCaml + C++
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{VEX IL}
+  \frametitle{Vine IL \footfullcite{vine-manual} \footfullcite{vine-vuln-analysis}}
   \begin{itemize}
   \item Явное указание всех side-эффектов для команд
   \item Ближе всего к ESIL
@@ -179,7 +179,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Vine IL \footfullcite{vine-manual} \footfullcite{vine-vuln-analysis}}
+  \frametitle{VEX IL}
   \begin{itemize}
   \item Бесконечная память
   \item Бесконечное количество регистров
