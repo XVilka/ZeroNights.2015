@@ -170,7 +170,7 @@
 \begin{frame}[fragile]
   \frametitle{Vine IL \footfullcite{vine-manual} \footfullcite{vine-vuln-analysis}}
   \begin{itemize}
-  \item Implicitly require side-эффектов для команд
+  \item Implicitly require description of all side-effects
   \item Quite similar to ESIL
   \item Very useful for direct code emulation
   \item Too much unused information
@@ -216,19 +216,19 @@
 \section{ESIL - сходства и отличия}
 
 \begin{frame}[fragile]
-  \frametitle{Краткое описание}
+  \frametitle{Short description}
      \begin{itemize}
         \item Evaluable Strings Intermediate Language \footfullcite{r2esil}
-		\item Использует обратную польскую нотацию (для скорости)
-		\item Не предназначен для чтения человеком
-		\item По ``уровню'' приближен к VEX
-		\item Небольшое количество инструкций
-		\item Полный учёт side-эффектов
+		\item Based on RPN (Reverse Polish Notation)(for the sake of speed)
+		\item Designed for evaluation and emulation, not human-reading
+		\item Low-level, pretty much alike Vine IL
+		\item Small set of the instructions
+		\item Implicit specification of all side-effects for each instruction
       \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Краткое описание}
+  \frametitle{Short description}
      \begin{itemize}
         \item Сроектирован для большого количества архитектур
 		\item Бесконечная память
@@ -241,7 +241,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Операнды ESIL}
+  \frametitle{ESIL operands}
     \begin{table}[H]
 	\caption{ESIL Operands \footfullcite{r2esil-instruction-set}}
 	\begin{center}
