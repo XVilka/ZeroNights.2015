@@ -322,34 +322,35 @@
 \begin{frame}[fragile]
   \frametitle{Radare2 — Important commands of Visual mode}
   \begin{enumerate}
-  \item \alert{\bf{V?}} или просто \alert{\bf{?}} : Помощь по командам
-  \item \alert{\bf{p/P}} : переключение между разными визуальными представлениями
-  \item Навигация с помощью стрелок/hjkl
-  \item \alert{\bf{o}} : переместиться по адресу
-  \item \alert{\bf{e}} : визуальный режим настроек
-  \item \alert{\bf{v}} : список функций
+  \item \alert{\bf{V?}} or just \alert{\bf{?}} : Hotkeys help
+  \item \alert{\bf{p/P}} : circle between various visual modes
+  \item hjkl/arrows navigation
+  \item \alert{\bf{o}} : go to the offset/address
+  \item \alert{\bf{e}} : show all config variables
+  \item \alert{\bf{v}} : show the functions list
   \item \alert{\bf{\_}} : HUD
   \item \alert{\bf{V}} : ASCII Graph
-  \item \alert{\bf{0-9}} : Прыжок на функцию
+  \item \alert{\bf{0-9}} : jump to the corresponding function
   \item \alert{\bf{u}} : Undo
  \end{enumerate}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Эмуляция участков кода}
+  \frametitle{Emulation using ESIL}
      \begin{itemize}
-        \item \alert{\bf{ae*}} набор инструкций
-		\item \alert{\bf{aei}} - инициализация ESIL VM
-		\item \alert{\bf{aeim}} - инициализация стека/памяти VM
-		\item \alert{\bf{aeip}} - установка IP (Instruction Pointer)
-		\item \alert{\bf{aes}} - step в режиме эмуляции ESIL
+        \item \alert{\bf{ae*}} - evaluate and show r2 commands
+		\item \alert{\bf{aei}} - VM initialization
+		\item \alert{\bf{aeim}} - VM memory/stack setup
+		\item \alert{\bf{aeip}} - to set IP (Instruction Pointer) for VM
+		\item \alert{\bf{aes}} - step in ESIL emulation
 		\item \alert{\bf{aec[u]}} - continue [until]
-		\item \alert{\bf{aef}} - эмуляция функции
+		\item \alert{\bf{aef}} - emulate whole function by name
       \end{itemize}
 \end{frame}
 
+% show demo here - embed gif/avi/asciinema?
 \begin{frame}[fragile]
-  \frametitle{Эмуляция участков кода}
+  \frametitle{Emulation using ESIL}
      \begin{itemize}
         \item DEMO
       \end{itemize}
