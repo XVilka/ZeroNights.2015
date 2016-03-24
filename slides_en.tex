@@ -366,11 +366,11 @@
   \begin{itemize}
 	  \item \alert{\bf{r2 -a 8051 ite\_it8502.rom}}
 	  \item \alert{\bf{. ite\_it8502.r2}}
-	  \item \alert{\bf{e io.cache=true}} для использования кеширования IO
-	  \item запустим \alert{\bf{aei}}
-	  \item запустим \alert{\bf{aeim}}
-	  \item запустим \alert{\bf{aeip}} для старта с момента указания команды
-	  \item \alert{\bf{aecu [addr]}} для эмуляции, пока не достигнем IP = [addr]
+	  \item \alert{\bf{e io.cache=true}} to cache IO while emulating
+	  \item run \alert{\bf{aei}}
+	  \item run \alert{\bf{aeim}}
+	  \item run \alert{\bf{aeip}} to start from current IP
+	  \item \alert{\bf{aecu [addr]}} to emulate until IP = [addr]
   \end{itemize}
 \end{frame}
 % show demo here
@@ -378,7 +378,7 @@
 
 % Check before the show! Probably won't work
 \begin{frame}[fragile]
-  \frametitle{Совместная отладка}
+  \frametitle{Simultaneous debug and emulation}
      \begin{itemize}
 		\item Использование ``подсказок'' ESIL при визуальной отладке
         \item DEMO
