@@ -377,51 +377,64 @@
 % Reference to the example from here? http://radare.tv/a/44
 
 % Check before the show! Probably won't work
+%\begin{frame}[fragile]
+%  \frametitle{Simultaneous debug and emulation}
+%     \begin{itemize}
+%		\item Использование ``подсказок'' ESIL при визуальной отладке
+%        \item DEMO
+%      \end{itemize}
+%\end{frame}
+
 \begin{frame}[fragile]
-  \frametitle{Simultaneous debug and emulation}
+  \frametitle{Full fledged emulation in VM}
      \begin{itemize}
-		\item Использование ``подсказок'' ESIL при визуальной отладке
-        \item DEMO
+        \item Allows to start ESIL VM with predefined properties
+		\item Allows to run the code (e.g. unpack) in this VM
+		\item Allows to set callbacks on some opcodes
+		\item Allows to translate syscalls into real ones (optional)
+		\item Good example - unpacking Baleful code \footfullcite{esil-baleful}
       \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Эмуляция VM}
+  \frametitle{Using ESIL emulation in analysis}
      \begin{itemize}
-        \item Позволяет выполнить распаковку или выполнение в VM
-		\item Хороший пример - использование ESIL для распаковки Baleful \footfullcite{esil-baleful}
+        \item Using emulation of the code to find indirect jumps
+		\item Using emulation to find some strings addresses
+		\item Started by \alert{\bf{aae}}
+		\item \alert{\bf{aae}} is a part of \alert{\bf{aaaa}} command
       \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Автоматическое отображение результатов эмуляции в дизассемблере}
+  \frametitle{Using background emulation to improve disassembly output}
      \begin{itemize}
-        \item Отображает в комментариях значения регистров и пямяти
-		\item Использует тот же механизм эмуляции кода ESIL VM
-		\item Показывает likely/unlikely для условных переходов
+        \item Shows possible registers and memory values in comments
+		\item Run ESIL VM with default properties in background
+		\item Show ``likely/unlikely'' for conditional jumps
 		\item \alert{\bf{e asm.emu=true}}
       \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Автоматическое отображение результатов эмуляции в дизассемблере}
+  \frametitle{Using background emulation to improve disassembly output}
      \begin{itemize}
         \item DEMO
       \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Конвертация в другие языки - OpenREIL}
+  \frametitle{Converting into another ILs - OpenREIL}
      \begin{itemize}
-        \item OpenREIL - развитый фреймфорк
-		\item Есть возможность использования SMT
-		\item Добавлена возможность конфертации ESIL в OpenREIL
-		\item Команда \alert{\bf{aetr}}
+        \item OpenREIL - actively maintained framework
+		\item Ability to perform symbolic execution using SMT solver
+		\item Radare2 has a special command to translate ESIL into OpenREIL
+		\item \alert{\bf{aetr}}
       \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Конвертация в другие языки - OpenREIL}
+  \frametitle{Converting into another ILs - OpenREIL}
      \begin{itemize}
         \item DEMO
       \end{itemize}
@@ -432,14 +445,14 @@
   \begin{itemize}
 	  \item \alert{\bf{r2 -a 8051 ite\_it8502.rom}}
 	  \item \alert{\bf{. ite\_it8502.r2}}
-	  \item run \alert{\bf{pae 36}} для показа ESIL представления функции 'set\_SMBus\_frequency'
+	  \item run \alert{\bf{pae 36}} to show ESIL of the function 'set\_SMBus\_frequency'
 \ifxetex
-	  \item \alert{\bf{aetr \`{}pae 36\`}} для конвертации строки ESIL в REIL
+	  \item \alert{\bf{aetr \`{}pae 36\`}} to translate ESIL into REIL
 \else
-	  \item run aetr \`{}pae 36\`{} для конвертации строки ESIL в REIL\footfullcite{openreil}
+	  \item run aetr \`{}pae 36\`{} to translate ESIL into REIL\footfullcite{openreil}
 \fi
-	  \item Сохранить вывод в файл и передать управление в OpenREIL
-	  \item Можно проделать всё вышеперечисленное с помощью r2pipe скрипта
+	  \item Save this output into the file/pipe and send as OpenREIL input
+	  \item Could be easily automated using r2pipe script
   \end{itemize}
 \end{frame}
 
