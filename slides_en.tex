@@ -473,23 +473,23 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Причины появления декомпилятора}
+  \frametitle{Why Radeco?}
      \begin{itemize}
-        \item Существующие FOSS декомпиляторы не учитывают последние исследования
-		\item Академические (но интересные) идеи не имеют полноценной реализации
-		\item Radare2 нуждается в декомпиляторе
-		\item Хорошее и интересное задание для Google Summer of Code
+		\item Existent FOSS decompilers are old and not use modern research
+		\item Interesting methods to decompile rarely implemented in FOSS tools
+		\item Radare2 as a RE suite need a good decompiler
+		\item Challenging still viable task for Google Summer of Code
       \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Описание Radeco IL}
+  \frametitle{Radeco IL description}
      \begin{itemize}
-        \item Графовое представление
-		\item Взяты идеи из RREIL и MAIL
-		\item Использование SSA на этапе лифтинга ESIL -> Radeco IL
-		\item Встроенная поддержка DCE (Dead Code Elimination)
-		\item Базовая возможность вывода типов \footfullcite{tie}
+        \item Based purely on graphs
+		\item Based on some concepts from RREIL and MAIL
+		\item Simplification to SSA form while lifting ESIL -> Radeco IL
+		\item Automatically performed DCE (Dead Code Elimination)
+		\item Types inference \footfullcite{tie}
       \end{itemize}
 \end{frame}
 
@@ -501,43 +501,43 @@
 \end{frame}
 
 % --------------------------------------------------------------------------------------
-\section{Пути будущего развития}
+\section{Future improvements}
 
 \begin{frame}[fragile]
-  \frametitle{Поддерживаемые архитектуры}
+  \frametitle{Supported architectures}
      \begin{itemize}
-        \item Сейчас лучше всего поддерживаются x86, ARM, GameBoy, 8051, etc
-		\item Глобальная цель - поддержка ESIL для всех архитектур в radare2
-		\item Поддержка профилей для выбранных модификаций/вариаций процессоров
+        \item Currently supported: x86, ARM, GameBoy, 8051, etc
+		\item Goal is to add support for all architectures in radare2
+		\item CPU/SoC/chip profiles for a slight differences between them
       \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Поддерживаемые наборы инструкций}
+  \frametitle{Instruction sets}
      \begin{itemize}
         \item Floating point (LLVM/McSema) \footfullcite{floating-point-SO}
-		\item Векторные инструкции (SSE, AVX, Neon, etc)
-		\item VLIW инструкции (для эмуляции кода DSP)
+		\item SIMD instructions (SSE, AVX, Neon, etc)
+		\item VLIW and parallel execution (for DSP architectures emulation)
       \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Визуальная отладка и трассировка}
+  \frametitle{Visual debugging and tracing}
      \begin{itemize}
-        \item Улучшение UI
-		\item Возможность визуального сравнения эмуляции и нативного выполнения
-		\item Устранение ``мертвого'' кода из ASCII графов на лету
-		\item Интеграция в WebUI и Bokken \footfullcite{bokken}
+        \item General UI improvements
+		\item Simple representation of diffs between emulation and native execution
+		\item Auto removing dead ways/blocks from ASCII graphs
+		\item Integration with WebUI and Bokken \footfullcite{bokken}
       \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Развитие декомпилятора Radeco}
+  \frametitle{Radeco improvements}
      \begin{itemize}
-        \item Генерация C кода
-		\item Поддержка нативных типов
-		\item Синхронизация с отладкой
-		\item Автовывод типов/распознавание объектов и классов\footfullcite{tie} \footfullcite{il-optimization}
+        \item pseudo-C code emission
+		\item Wider support for various: native and custom types
+		\item Recalculating results on the fly, depending from debugging results
+		\item Types inference and function/classes autorecognition\footfullcite{tie} \footfullcite{il-optimization}
       \end{itemize}
 \end{frame}
 
