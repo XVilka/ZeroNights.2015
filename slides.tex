@@ -162,14 +162,14 @@
   \begin{itemize}
   \item BitBlaze \footfullcite{bitblaze} - платформа, аналогичная BAP
   \item Имеет несколько промежуточных языков
-  \item VEX IL (libVEX из valgrind) - ``нижний'' уровень
-  \item Vine IL - ``верхний'' уровень
+  \item VEX IL (libVEX из valgrind) - ``верхний'' уровень
+  \item Vine IL - ``нижний'' уровень
   \item Написан на OCaml + C++
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{VEX IL}
+  \frametitle{Vine IL\footfullcite{vine-manual}\footfullcite{vine-vuln-analysis}}
   \begin{itemize}
   \item Явное указание всех side-эффектов для команд
   \item Ближе всего к ESIL
@@ -180,7 +180,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Vine IL \footfullcite{vine-manual} \footfullcite{vine-vuln-analysis}}
+  \frametitle{VEX IL}
   \begin{itemize}
   \item Бесконечная память
   \item Бесконечное количество регистров
@@ -221,7 +221,7 @@
         \item Evaluable Strings Intermediate Language \footfullcite{r2esil}
 		\item Использует обратную польскую нотацию (для скорости)
 		\item Не предназначен для чтения человеком
-		\item По ``уровню'' приближен к VEX
+		\item По ``уровню'' приближен к Vine IL
 		\item Небольшое количество инструкций
 		\item Полный учёт side-эффектов
       \end{itemize}
